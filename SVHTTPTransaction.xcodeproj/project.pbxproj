@@ -11,6 +11,14 @@
 		C30892E4218E40A8005300B6 /* SVHTTPTransaction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30892DA218E40A8005300B6 /* SVHTTPTransaction.framework */; };
 		C30892E9218E40A8005300B6 /* SVHTTPTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30892E8218E40A8005300B6 /* SVHTTPTransactionTests.swift */; };
 		C30892EB218E40A8005300B6 /* SVHTTPTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = C30892DD218E40A8005300B6 /* SVHTTPTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3174271218E48DB00550332 /* URLSession+HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3174270218E48DB00550332 /* URLSession+HTTP.swift */; };
+		C3174273218E495000550332 /* HTTPURLResponse+Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3174272218E495000550332 /* HTTPURLResponse+Body.swift */; };
+		C3174275218E512400550332 /* HTTPTransactionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3174274218E512400550332 /* HTTPTransactionError.swift */; };
+		C3174277218E51D000550332 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3174276218E51D000550332 /* DataConvertible.swift */; };
+		C3174279218E521B00550332 /* EmptyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3174278218E521B00550332 /* EmptyData.swift */; };
+		C317427B218E54CB00550332 /* ProblemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317427A218E54CB00550332 /* ProblemDetail.swift */; };
+		C317427D218E56CF00550332 /* DataHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317427C218E56CF00550332 /* DataHTTPRequest.swift */; };
+		C317427F218E584000550332 /* URLRequest+DataHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317427E218E584000550332 /* URLRequest+DataHTTPRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +41,14 @@
 		C30892E3218E40A8005300B6 /* SVHTTPTransactionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SVHTTPTransactionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30892E8218E40A8005300B6 /* SVHTTPTransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVHTTPTransactionTests.swift; sourceTree = "<group>"; };
 		C30892EA218E40A8005300B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3174270218E48DB00550332 /* URLSession+HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+HTTP.swift"; sourceTree = "<group>"; };
+		C3174272218E495000550332 /* HTTPURLResponse+Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Body.swift"; sourceTree = "<group>"; };
+		C3174274218E512400550332 /* HTTPTransactionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTransactionError.swift; sourceTree = "<group>"; };
+		C3174276218E51D000550332 /* DataConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertible.swift; sourceTree = "<group>"; };
+		C3174278218E521B00550332 /* EmptyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyData.swift; sourceTree = "<group>"; };
+		C317427A218E54CB00550332 /* ProblemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemDetail.swift; sourceTree = "<group>"; };
+		C317427C218E56CF00550332 /* DataHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHTTPRequest.swift; sourceTree = "<group>"; };
+		C317427E218E584000550332 /* URLRequest+DataHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+DataHTTPRequest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +102,16 @@
 		C30892DC218E40A8005300B6 /* SVHTTPTransaction */ = {
 			isa = PBXGroup;
 			children = (
-				C30892DD218E40A8005300B6 /* SVHTTPTransaction.h */,
+				C3174276218E51D000550332 /* DataConvertible.swift */,
+				C317427C218E56CF00550332 /* DataHTTPRequest.swift */,
+				C3174278218E521B00550332 /* EmptyData.swift */,
+				C3174274218E512400550332 /* HTTPTransactionError.swift */,
+				C3174272218E495000550332 /* HTTPURLResponse+Body.swift */,
 				C30892DE218E40A8005300B6 /* Info.plist */,
+				C317427A218E54CB00550332 /* ProblemDetail.swift */,
+				C30892DD218E40A8005300B6 /* SVHTTPTransaction.h */,
+				C317427E218E584000550332 /* URLRequest+DataHTTPRequest.swift */,
+				C3174270218E48DB00550332 /* URLSession+HTTP.swift */,
 			);
 			path = SVHTTPTransaction;
 			sourceTree = "<group>";
@@ -173,6 +197,7 @@
 				TargetAttributes = {
 					C30892D9218E40A8005300B6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					C30892E2218E40A8005300B6 = {
 						CreatedOnToolsVersion = 10.1;
@@ -244,6 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3174273218E495000550332 /* HTTPURLResponse+Body.swift in Sources */,
+				C3174275218E512400550332 /* HTTPTransactionError.swift in Sources */,
+				C317427F218E584000550332 /* URLRequest+DataHTTPRequest.swift in Sources */,
+				C317427B218E54CB00550332 /* ProblemDetail.swift in Sources */,
+				C3174271218E48DB00550332 /* URLSession+HTTP.swift in Sources */,
+				C317427D218E56CF00550332 /* DataHTTPRequest.swift in Sources */,
+				C3174277218E51D000550332 /* DataConvertible.swift in Sources */,
+				C3174279218E521B00550332 /* EmptyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4B7C8EB675A85276C6705E7 /* Pods-SVHTTPTransaction.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
@@ -410,6 +444,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -419,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB09161A9E3D6B2986A2FB50 /* Pods-SVHTTPTransaction.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
@@ -445,6 +481,7 @@
 		C30892F2218E40A8005300B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SVHTTPTransactionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,6 +499,7 @@
 		C30892F3218E40A8005300B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SVHTTPTransactionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

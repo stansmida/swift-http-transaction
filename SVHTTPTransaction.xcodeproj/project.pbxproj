@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		399CD5C39EAE581FF185ED61 /* Pods_SVHTTPTransaction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1D499BA2CFAA9D16C60446 /* Pods_SVHTTPTransaction.framework */; };
 		C30892E4218E40A8005300B6 /* SVHTTPTransaction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30892DA218E40A8005300B6 /* SVHTTPTransaction.framework */; };
 		C30892E9218E40A8005300B6 /* SVHTTPTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30892E8218E40A8005300B6 /* SVHTTPTransactionTests.swift */; };
 		C30892EB218E40A8005300B6 /* SVHTTPTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = C30892DD218E40A8005300B6 /* SVHTTPTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F1D499BA2CFAA9D16C60446 /* Pods_SVHTTPTransaction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVHTTPTransaction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4B7C8EB675A85276C6705E7 /* Pods-SVHTTPTransaction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVHTTPTransaction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SVHTTPTransaction/Pods-SVHTTPTransaction.debug.xcconfig"; sourceTree = "<group>"; };
+		BB09161A9E3D6B2986A2FB50 /* Pods-SVHTTPTransaction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVHTTPTransaction.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVHTTPTransaction/Pods-SVHTTPTransaction.release.xcconfig"; sourceTree = "<group>"; };
 		C30892DA218E40A8005300B6 /* SVHTTPTransaction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVHTTPTransaction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30892DD218E40A8005300B6 /* SVHTTPTransaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVHTTPTransaction.h; sourceTree = "<group>"; };
 		C30892DE218E40A8005300B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				399CD5C39EAE581FF185ED61 /* Pods_SVHTTPTransaction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E8030022CD3C30164ABB315 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F1D499BA2CFAA9D16C60446 /* Pods_SVHTTPTransaction.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C30892D0218E40A8005300B6 = {
 			isa = PBXGroup;
 			children = (
 				C30892DC218E40A8005300B6 /* SVHTTPTransaction */,
 				C30892E7218E40A8005300B6 /* SVHTTPTransactionTests */,
 				C30892DB218E40A8005300B6 /* Products */,
+				F882105ECFE6F0D696C1EB5B /* Pods */,
+				0E8030022CD3C30164ABB315 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +101,15 @@
 			path = SVHTTPTransactionTests;
 			sourceTree = "<group>";
 		};
+		F882105ECFE6F0D696C1EB5B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4B7C8EB675A85276C6705E7 /* Pods-SVHTTPTransaction.debug.xcconfig */,
+				BB09161A9E3D6B2986A2FB50 /* Pods-SVHTTPTransaction.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -104,6 +128,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C30892EE218E40A8005300B6 /* Build configuration list for PBXNativeTarget "SVHTTPTransaction" */;
 			buildPhases = (
+				97822284E35878349D38F204 /* [CP] Check Pods Manifest.lock */,
 				C30892D5218E40A8005300B6 /* Headers */,
 				C30892D6218E40A8005300B6 /* Sources */,
 				C30892D7218E40A8005300B6 /* Frameworks */,
@@ -188,6 +213,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		97822284E35878349D38F204 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SVHTTPTransaction-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C30892D6218E40A8005300B6 /* Sources */ = {
@@ -340,6 +390,7 @@
 		};
 		C30892EF218E40A8005300B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4B7C8EB675A85276C6705E7 /* Pods-SVHTTPTransaction.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
@@ -366,6 +417,7 @@
 		};
 		C30892F0218E40A8005300B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB09161A9E3D6B2986A2FB50 /* Pods-SVHTTPTransaction.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;

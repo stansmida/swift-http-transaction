@@ -12,7 +12,7 @@ public extension URLSession {
      */
     public func dataTask(withHTTPURLRequest request: URLRequest, asyncReturn: @escaping AsyncReturn<Failable<HTTPURLResponse>>) -> URLSessionDataTask {
         return dataTask(with: request, completionHandler: { data, urlResponse, error in
-            assert(["http, https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
+            assert(["http", "https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
             do {
                 guard error == nil else {
                     throw error!

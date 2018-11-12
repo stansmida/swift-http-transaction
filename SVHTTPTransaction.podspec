@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '9.0'
   spec.license  = { :type => 'MIT' }
   spec.name = 'SVHTTPTransaction'
-  spec.version = '0.1.3'
+  spec.version = '0.1.4'
   spec.source = { :git => 'https://github.com/svagant/svhttptransaction.git', :tag => spec.version.to_s }
   spec.source_files = 'SVHTTPTransaction/*.swift'
   spec.summary = 'A strong type HTTP request - response transaction.'

@@ -3,7 +3,7 @@ import SVFoundation
 
 extension URLSession {
     
-    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<SpecificFailable<T.Response, HTTPTransactionError<T.ProblemDetailType>>>) throws -> URLSessionDataTask {
+    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<SpecificFailable<T.Response, HTTPTransactionError<T.ProblemDetail>>>) throws -> URLSessionDataTask {
         return dataTask(withHTTPURLRequest: try request.urlRequest(), asyncReturn: { response in
             asyncReturn(self.process(response: response, of: T.self))
         })
@@ -11,12 +11,12 @@ extension URLSession {
     
     /// Transforms `HTTPURLResponse` into `DataHTTPRequest.Response` or fails
     /// with `HTTPTransactionError`.
-    private func process<T: DataHTTPRequest>(response: Failable<HTTPURLResponse>, of _: T.Type) -> SpecificFailable<T.Response, HTTPTransactionError<T.ProblemDetailType>> {
+    private func process<T: DataHTTPRequest>(response: Failable<HTTPURLResponse>, of _: T.Type) -> SpecificFailable<T.Response, HTTPTransactionError<T.ProblemDetail>> {
         do {
             let httpURLResponse = try response.unwrap()
             let data = httpURLResponse.body!
             guard httpURLResponse.statusCode == T.expectedStatusCode else {
-                return .failure(.badResponse(httpURLResponse, try? T.ProblemDetailType(data: data)))
+                return .failure(.badResponse(httpURLResponse, try? T.ProblemDetail(data: data)))
             }
             do {
                 return .ok(try T.Response(data: data))

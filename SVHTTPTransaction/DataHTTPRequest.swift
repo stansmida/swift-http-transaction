@@ -12,7 +12,7 @@ public protocol DataHTTPRequest {
      has empty data - thats it.
      */
     associatedtype Response: DataConvertible
-    associatedtype ProblemDetailType: ProblemDetail
+    associatedtype ProblemDetail: ProblemDetailProtocol
     func urlRequest() throws -> URLRequest
     static var expectedStatusCode: Int { get }
 }

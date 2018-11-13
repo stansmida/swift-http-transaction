@@ -1,9 +1,7 @@
 import Foundation
 
 public protocol JSONConvertible: Codable, DataConvertible {
-    /// Use to customize decoding.
     static var jsonEncoder: JSONEncoder { get }
-    /// Use to customize decoding. Default has `keyDecodingStrategy` set to `.convertFromSnakeCase`.
     static var jsonDecoder: JSONDecoder { get }
 }
 
@@ -22,27 +20,13 @@ extension JSONConvertible {
     // MARK: - JSONConvertible defaults
     
     public static var jsonDecoder: JSONDecoder {
-        return sharedJSONDecoder
+        return JSONDecoder()
     }
     
     public static var jsonEncoder: JSONEncoder {
-        return sharedJSONEncoder
+        return JSONEncoder()
     }
 }
-
-// MARK: - Shared default coders for `JSONConvertible` types.
-// Covenient, shared yet thread safe.
-
-private let sharedJSONDecoder: JSONDecoder = {
-    let decoder = JSONDecoder()
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
-    return decoder
-}()
-
-private let sharedJSONEncoder: JSONEncoder = {
-    let encoder = JSONEncoder()
-    return encoder
-}()
 
 extension Array: JSONConvertible where Element: JSONConvertible {}
 

@@ -30,9 +30,9 @@ public extension HTTPURLResponse {
         fileprivate static let table = NSMapTable<HTTPURLResponse, NSData>(keyOptions: [.weakMemory], valueOptions: [.copyIn])
         public static var _debug = false
         public static func _debugPrint(_ context: String? = nil) {
-            let count = BodySupport.table.count
-            let content = BodySupport.table.keyEnumerator().allObjects.map({ (($0 as? HTTPURLResponse)?.url?.absoluteString ?? "Not an URL") })
-            print("HTTPURLResponse.BodySupport>>> Items count: \(count); Context: \(String(describing: context)); Content:\n\(content.joined(separator: "\n"))")
+            let content = BodySupport.table.keyEnumerator().allObjects
+            let count = content.count // maptable count seems to be updating underlying (possibly updating also when keyEnumerator() is called) so if we want a number that reflefts `content` we should use content count...
+            print("HTTPURLResponse.BodySupport (turn off with HTTPURLResponse.BodySupport._debug = false)\n>>> Items count: \(count); Context: \(String(describing: context)); Content:\n\(content.map({ (($0 as? HTTPURLResponse)?.url?.absoluteString ?? "Not an URL") }).joined(separator: "\n"))")
         }
     }
     

@@ -31,7 +31,7 @@ public extension HTTPURLResponse {
         public static var _debug = false
         public static func _debugPrint(_ context: String? = nil) {
             let count = BodySupport.table.count
-            let content = BodySupport.table.dictionaryRepresentation().map({ (($0 as? HTTPURLResponse)?.url?.absoluteString ?? "nan") + " \($1.length)" })
+            let content = BodySupport.table.keyEnumerator().allObjects.map({ (($0 as? HTTPURLResponse)?.url?.absoluteString ?? "Not an URL") })
             print("HTTPURLResponse.BodySupport>>> Items count: \(count); Context: \(String(describing: context)); Content:\n\(content.joined(separator: "\n"))")
         }
     }

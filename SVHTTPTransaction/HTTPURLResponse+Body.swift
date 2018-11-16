@@ -25,17 +25,34 @@ import Foundation
  */
 public extension HTTPURLResponse {
     
-    private struct Static {
-        static let body = NSMapTable<HTTPURLResponse, NSData>(keyOptions: [.weakMemory], valueOptions: [.copyIn])
+    public struct BodySupport {
+        fileprivate static let queue = DispatchQueue(label: "HTTPURLResponse.BodySupport.queue", qos: .userInteractive, attributes: .concurrent, autoreleaseFrequency: .never)
+        fileprivate static let table = NSMapTable<HTTPURLResponse, NSData>(keyOptions: [.weakMemory], valueOptions: [.copyIn])
+        public static var _debug = false
+        public static func _debugPrint(_ context: String? = nil) {
+            let count = BodySupport.table.count
+            let content = BodySupport.table.dictionaryRepresentation().map({ (($0 as? HTTPURLResponse)?.url?.absoluteString ?? "nan") + " \($1.length)" })
+            print("HTTPURLResponse.BodySupport>>> Items count: \(count); Context: \(String(describing: context)); Content:\n\(content.joined(separator: "\n"))")
+        }
     }
     
     /// HTTP response message body data.
     public internal(set) var body: Data? {
         get {
-            return Static.body.object(forKey: self) as Data?
+            return BodySupport.queue.sync(execute: {
+                if BodySupport._debug {
+                    BodySupport._debugPrint("willGet")
+                }
+                return BodySupport.table.object(forKey: self) as Data?
+            })
         }
         set {
-            Static.body.setObject(newValue as NSData?, forKey: self)
+            BodySupport.queue.async(flags: .barrier, execute: {
+                BodySupport.table.setObject(newValue as NSData?, forKey: self)
+                if BodySupport._debug {
+                    BodySupport._debugPrint("didSet")
+                }
+            })
         }
     }
 }

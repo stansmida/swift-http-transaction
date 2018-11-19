@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		399CD5C39EAE581FF185ED61 /* Pods_SVHTTPTransaction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1D499BA2CFAA9D16C60446 /* Pods_SVHTTPTransaction.framework */; };
+		96BEA8060D6EBE226AE9DD59 /* Pods_SVHTTPTransaction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A003189904CD5C01779C8158 /* Pods_SVHTTPTransaction.framework */; };
 		C30892E4218E40A8005300B6 /* SVHTTPTransaction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30892DA218E40A8005300B6 /* SVHTTPTransaction.framework */; };
 		C30892E9218E40A8005300B6 /* SVHTTPTransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30892E8218E40A8005300B6 /* SVHTTPTransactionTests.swift */; };
 		C30892EB218E40A8005300B6 /* SVHTTPTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = C30892DD218E40A8005300B6 /* SVHTTPTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,9 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F1D499BA2CFAA9D16C60446 /* Pods_SVHTTPTransaction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVHTTPTransaction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4B7C8EB675A85276C6705E7 /* Pods-SVHTTPTransaction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVHTTPTransaction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SVHTTPTransaction/Pods-SVHTTPTransaction.debug.xcconfig"; sourceTree = "<group>"; };
-		BB09161A9E3D6B2986A2FB50 /* Pods-SVHTTPTransaction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVHTTPTransaction.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVHTTPTransaction/Pods-SVHTTPTransaction.release.xcconfig"; sourceTree = "<group>"; };
+		04FB510FDFB954A8932FA667 /* Pods-SVHTTPTransaction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVHTTPTransaction.release.xcconfig"; path = "Pods/Target Support Files/Pods-SVHTTPTransaction/Pods-SVHTTPTransaction.release.xcconfig"; sourceTree = "<group>"; };
+		0E6170C1CFEF5E31844F6FA8 /* Pods-SVHTTPTransaction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SVHTTPTransaction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SVHTTPTransaction/Pods-SVHTTPTransaction.debug.xcconfig"; sourceTree = "<group>"; };
+		A003189904CD5C01779C8158 /* Pods_SVHTTPTransaction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SVHTTPTransaction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30892DA218E40A8005300B6 /* SVHTTPTransaction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVHTTPTransaction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30892DD218E40A8005300B6 /* SVHTTPTransaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVHTTPTransaction.h; sourceTree = "<group>"; };
 		C30892DE218E40A8005300B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				399CD5C39EAE581FF185ED61 /* Pods_SVHTTPTransaction.framework in Frameworks */,
+				96BEA8060D6EBE226AE9DD59 /* Pods_SVHTTPTransaction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,12 +73,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E8030022CD3C30164ABB315 /* Frameworks */ = {
+		71CF1C00892F4E7EAAE3C8FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F1D499BA2CFAA9D16C60446 /* Pods_SVHTTPTransaction.framework */,
+				A003189904CD5C01779C8158 /* Pods_SVHTTPTransaction.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BCFC620FFC2D586CC5E4280 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E6170C1CFEF5E31844F6FA8 /* Pods-SVHTTPTransaction.debug.xcconfig */,
+				04FB510FDFB954A8932FA667 /* Pods-SVHTTPTransaction.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C30892D0218E40A8005300B6 = {
@@ -87,8 +96,8 @@
 				C30892DC218E40A8005300B6 /* SVHTTPTransaction */,
 				C30892E7218E40A8005300B6 /* SVHTTPTransactionTests */,
 				C30892DB218E40A8005300B6 /* Products */,
-				F882105ECFE6F0D696C1EB5B /* Pods */,
-				0E8030022CD3C30164ABB315 /* Frameworks */,
+				9BCFC620FFC2D586CC5E4280 /* Pods */,
+				71CF1C00892F4E7EAAE3C8FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,15 +137,6 @@
 			path = SVHTTPTransactionTests;
 			sourceTree = "<group>";
 		};
-		F882105ECFE6F0D696C1EB5B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A4B7C8EB675A85276C6705E7 /* Pods-SVHTTPTransaction.debug.xcconfig */,
-				BB09161A9E3D6B2986A2FB50 /* Pods-SVHTTPTransaction.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -155,7 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C30892EE218E40A8005300B6 /* Build configuration list for PBXNativeTarget "SVHTTPTransaction" */;
 			buildPhases = (
-				97822284E35878349D38F204 /* [CP] Check Pods Manifest.lock */,
+				A080BDC61E19EF3DD990F4A8 /* [CP] Check Pods Manifest.lock */,
 				C30892D5218E40A8005300B6 /* Headers */,
 				C30892D6218E40A8005300B6 /* Sources */,
 				C30892D7218E40A8005300B6 /* Frameworks */,
@@ -243,7 +243,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		97822284E35878349D38F204 /* [CP] Check Pods Manifest.lock */ = {
+		A080BDC61E19EF3DD990F4A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -355,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -413,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -427,7 +427,7 @@
 		};
 		C30892EF218E40A8005300B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4B7C8EB675A85276C6705E7 /* Pods-SVHTTPTransaction.debug.xcconfig */;
+			baseConfigurationReference = 0E6170C1CFEF5E31844F6FA8 /* Pods-SVHTTPTransaction.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -456,7 +456,7 @@
 		};
 		C30892F0218E40A8005300B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB09161A9E3D6B2986A2FB50 /* Pods-SVHTTPTransaction.release.xcconfig */;
+			baseConfigurationReference = 04FB510FDFB954A8932FA667 /* Pods-SVHTTPTransaction.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

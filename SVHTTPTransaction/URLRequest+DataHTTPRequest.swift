@@ -3,7 +3,7 @@ import SVFoundation
 
 extension URLSession {
     
-    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<SpecificFailable<T.Response, HTTPTransactionError<T.ProblemDetail>>>) throws -> URLSessionDataTask {
+    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<SpecificFailable<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) throws -> URLSessionDataTask {
         return dataTask(withHTTPURLRequest: try request.urlRequest(), asyncReturn: { response in
             asyncReturn(self.process(response: response, of: T.self))
         })
@@ -11,7 +11,7 @@ extension URLSession {
     
     /// Transforms `HTTPURLResponse` into `DataHTTPRequest.Response` or fails
     /// with `HTTPTransactionError`.
-    private func process<T: DataHTTPRequest>(response: Failable<HTTPURLResponse>, of _: T.Type) -> SpecificFailable<T.Response, HTTPTransactionError<T.ProblemDetail>> {
+    private func process<T: DataHTTPRequest>(response: Failable<HTTPURLResponse>, of _: T.Type) -> SpecificFailable<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>> {
         do {
             let httpURLResponse = try response.unwrap()
             let data = httpURLResponse.body!
@@ -19,7 +19,7 @@ extension URLSession {
                 return .failure(.badResponse(httpURLResponse, try? T.ProblemDetail(data: data)))
             }
             do {
-                return .ok(try T.Response(data: data))
+                return .ok(try T.ResponseBody(data: data))
             } catch {
                 return .failure(.decodingFailure(error))
             }

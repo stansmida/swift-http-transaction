@@ -18,6 +18,7 @@ public protocol DataHTTPRequest {
     static var expectedStatusCode: Int { get }
 }
 
-public protocol DataHTTPRequestWithBody: DataHTTPRequest {
-    associatedtype Body: Entity
+public protocol RequestEntityInclusion {
+    associatedtype Entity: EntityProtocol
+    var entity: Entity { get }
 }

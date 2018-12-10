@@ -6,12 +6,13 @@ public extension URLSession {
     /**
      Stronger response type. It asynchronously returns either response or error.
      
-     - Requires: Request URL scheme to be either HTTPS or HTTP.
+     - Requires: Request URL scheme to be either HTTPS or HTTP. `about` is
+     allowed as well.
      - Postcondition: `HTTPURLResponse.body` in `asyncReturn` are guaranteed not
      to be nil.
      */
     public func dataTask(withHTTPURLRequest request: URLRequest, asyncReturn: @escaping AsyncReturn<Failable<HTTPURLResponse>>) -> URLSessionDataTask {
-        assert(["http", "https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
+        assert(["about", "http", "https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
         return dataTask(with: request, completionHandler: { data, urlResponse, error in
             do {
                 guard error == nil else {

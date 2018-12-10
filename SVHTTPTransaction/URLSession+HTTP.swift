@@ -8,11 +8,11 @@ public extension URLSession {
      
      - Requires: Request URL scheme to be either HTTPS or HTTP.
      - Postcondition: `HTTPURLResponse.body` in `asyncReturn` are guaranteed not
-     to be nil. You can force unwrap.
+     to be nil.
      */
     public func dataTask(withHTTPURLRequest request: URLRequest, asyncReturn: @escaping AsyncReturn<Failable<HTTPURLResponse>>) -> URLSessionDataTask {
+        assert(["http", "https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
         return dataTask(with: request, completionHandler: { data, urlResponse, error in
-            assert(["http", "https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
             do {
                 guard error == nil else {
                     throw error!

@@ -3,8 +3,8 @@ import SVFoundation
 
 extension URLSession {
     
-    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<SpecificFailable<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) throws -> URLSessionDataTask {
-        return dataTask(withHTTPURLRequest: try request.urlRequest(), asyncReturn: { response in
+    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<SpecificFailable<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) -> URLSessionDataTask {
+        return dataTask(withHTTPURLRequest: request.urlRequest, asyncReturn: { response in
             asyncReturn(self.process(response: response, of: T.self))
         })
     }

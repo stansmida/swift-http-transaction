@@ -14,7 +14,7 @@ public protocol DataHTTPRequest {
      */
     associatedtype ResponseBody: EntityBody
     associatedtype ProblemDetail: ProblemDetailProtocol
-    func urlRequest() throws -> URLRequest
+    var urlRequest: URLRequest { get }
     static var expectedStatusCode: Int { get }
 }
 

@@ -19,7 +19,6 @@
 		C317427B218E54CB00550332 /* ProblemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317427A218E54CB00550332 /* ProblemDetail.swift */; };
 		C317427D218E56CF00550332 /* DataHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317427C218E56CF00550332 /* DataHTTPRequest.swift */; };
 		C317427F218E584000550332 /* URLRequest+DataHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317427E218E584000550332 /* URLRequest+DataHTTPRequest.swift */; };
-		C3997BE521A579F400ECBC24 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3997BE421A579F400ECBC24 /* Entity.swift */; };
 		C3CCB096219988AD009E1CD3 /* JSONConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB095219988AD009E1CD3 /* JSONConvertible.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		C317427A218E54CB00550332 /* ProblemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemDetail.swift; sourceTree = "<group>"; };
 		C317427C218E56CF00550332 /* DataHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHTTPRequest.swift; sourceTree = "<group>"; };
 		C317427E218E584000550332 /* URLRequest+DataHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+DataHTTPRequest.swift"; sourceTree = "<group>"; };
-		C3997BE421A579F400ECBC24 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		C3CCB095219988AD009E1CD3 /* JSONConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +124,6 @@
 				C317427E218E584000550332 /* URLRequest+DataHTTPRequest.swift */,
 				C3174270218E48DB00550332 /* URLSession+HTTP.swift */,
 				C3CCB095219988AD009E1CD3 /* JSONConvertible.swift */,
-				C3997BE421A579F400ECBC24 /* Entity.swift */,
 			);
 			path = SVHTTPTransaction;
 			sourceTree = "<group>";
@@ -281,7 +278,6 @@
 				C317427B218E54CB00550332 /* ProblemDetail.swift in Sources */,
 				C3CCB096219988AD009E1CD3 /* JSONConvertible.swift in Sources */,
 				C3174271218E48DB00550332 /* URLSession+HTTP.swift in Sources */,
-				C3997BE521A579F400ECBC24 /* Entity.swift in Sources */,
 				C317427D218E56CF00550332 /* DataHTTPRequest.swift in Sources */,
 				C3174277218E51D000550332 /* DataConvertible.swift in Sources */,
 				C3174279218E521B00550332 /* EmptyData.swift in Sources */,

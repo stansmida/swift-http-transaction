@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol JSONConvertible: Codable, DataConvertible {
+public protocol JSONConvertible: DataConvertible, Codable {
     static var jsonEncoder: JSONEncoder { get }
     static var jsonDecoder: JSONDecoder { get }
 }
@@ -29,6 +29,10 @@ extension JSONConvertible {
 }
 private let sharedJSONDecoder = JSONDecoder()
 private let sharedJSONEncoder = JSONEncoder()
+
+// MARK: -
+// TODO: Add all Swift defined types in applicable for JSON? e.g. Dictionary
+// as raw representation of the value...
 
 extension Array: JSONConvertible where Element: JSONConvertible {}
 extension Array: DataConvertible where Element: JSONConvertible {}

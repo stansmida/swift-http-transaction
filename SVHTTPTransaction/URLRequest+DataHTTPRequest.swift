@@ -33,7 +33,7 @@ extension URLSession {
        - asyncReturn: A processed response to resolve.
      - Returns: The new session data task.
      */
-    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<SpecificFailable<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) -> URLSessionDataTask {
+    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<Result<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) -> URLSessionDataTask {
         do {
             return dataTask(withHTTPURLRequest: try request.urlRequest(), asyncReturn: { result in
                 asyncReturn(self.process(result: result, of: T.self))
@@ -45,15 +45,15 @@ extension URLSession {
         }
     }
 
-    private func process<T: DataHTTPRequest>(result: Failable<HTTPURLResponse>, of _: T.Type) -> SpecificFailable<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>> {
+    private func process<T: DataHTTPRequest>(result: Result<HTTPURLResponse, Error>, of _: T.Type) -> Result<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>> {
         do {
-            let httpURLResponse = try result.unwrap()
+            let httpURLResponse = try result.get()
             let data = httpURLResponse.body!
             guard (200..<300).contains(httpURLResponse.statusCode) else {
-                return .failure(.notSuccess(httpURLResponse, try? T.ProblemDetail(data: data)))
+                return .failure(.unsuccessfulRequest(httpURLResponse, try? T.ProblemDetail(data: data)))
             }
             do {
-                return .ok(try T.ResponseBody(data: data))
+                return .success(try T.ResponseBody(data: data))
             } catch {
                 return .failure(.decodingFailure(error))
             }

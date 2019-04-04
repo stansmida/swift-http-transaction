@@ -10,7 +10,7 @@ public extension URLSession {
      - Postcondition: `HTTPURLResponse.body` in `asyncReturn` is guaranteed
      to be not nil.
      */
-    public func dataTask(withHTTPURLRequest request: URLRequest, asyncReturn: @escaping AsyncReturn<Failable<HTTPURLResponse>>) -> URLSessionDataTask {
+    func dataTask(withHTTPURLRequest request: URLRequest, asyncReturn: @escaping AsyncReturn<Result<HTTPURLResponse, Error>>) -> URLSessionDataTask {
         precondition(["http", "https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
         return dataTask(with: request, completionHandler: { data, urlResponse, error in
             do {
@@ -32,7 +32,7 @@ public extension URLSession {
                     throw UnexpectedError(errorDescription: "Unexpected arguments. Request: \(request). Data: \(String(describing: data)); Response: \(String(describing: urlResponse)); Error: \(String(describing: error))")
                 }
                 httpURLResponse.body = data
-                asyncReturn(.ok(httpURLResponse))
+                asyncReturn(.success(httpURLResponse))
             } catch {
                 asyncReturn(.failure(error))
             }

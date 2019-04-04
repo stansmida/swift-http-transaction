@@ -3,7 +3,7 @@ import Foundation
 /**
  HTTPURLResponse extended to have a response body property.
  
- - Note: The intension is to propagate response body to corresponding
+ - Note: The intension is to propagate response body through corresponding
  `URLSessionTask` for a HTTP request. Since these data are strictly a part of
  a response that is a property of `URLSessionTask` it is not possible to use
  otherwise preferred ways of adding property to a type:
@@ -25,33 +25,21 @@ import Foundation
  */
 public extension HTTPURLResponse {
     
-    public struct BodySupport {
+    fileprivate struct BodySupport {
         fileprivate static let queue = DispatchQueue(label: "HTTPURLResponse.BodySupport.queue", qos: .userInteractive, attributes: .concurrent, autoreleaseFrequency: .never)
         fileprivate static let table = NSMapTable<HTTPURLResponse, NSData>(keyOptions: [.weakMemory], valueOptions: [.copyIn])
-        public static var _debug = false
-        public static func _debugPrint(_ context: String? = nil) {
-            let content = BodySupport.table.keyEnumerator().allObjects
-            let count = content.count // maptable count seems to be updating underlying (possibly updating also when keyEnumerator() is called) so if we want a number that reflefts `content` we should use content count...
-            print("HTTPURLResponse.BodySupport (turn off with HTTPURLResponse.BodySupport._debug = false)\n>>> Items count: \(count); Context: \(String(describing: context)); Content:\n\(content.map({ (($0 as? HTTPURLResponse)?.url?.absoluteString ?? "Not an URL") }).joined(separator: "\n"))")
-        }
     }
     
     /// HTTP response message body data.
-    public internal(set) var body: Data? {
+    internal(set) var body: Data? {
         get {
             return BodySupport.queue.sync(execute: {
-                if BodySupport._debug {
-                    BodySupport._debugPrint("willGet")
-                }
                 return BodySupport.table.object(forKey: self) as Data?
             })
         }
         set {
             BodySupport.queue.async(flags: .barrier, execute: {
                 BodySupport.table.setObject(newValue as NSData?, forKey: self)
-                if BodySupport._debug {
-                    BodySupport._debugPrint("didSet")
-                }
             })
         }
     }

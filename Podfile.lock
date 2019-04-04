@@ -1,16 +1,16 @@
 PODS:
-  - SVFoundation (0.1.8)
+  - SVFoundation (0.2)
 
 DEPENDENCIES:
-  - SVFoundation (~> 0.1.8)
+  - SVFoundation (~> 0.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SVFoundation
 
 SPEC CHECKSUMS:
-  SVFoundation: 9bdffcf2deb9aace4e9863311b9fccfaa722b4cc
+  SVFoundation: 1ac3bae55c2d3cf50be2862caccd6267d757f344
 
-PODFILE CHECKSUM: 428ffd81a7af7ba2fa7ca86063432bed40de14ed
+PODFILE CHECKSUM: bd2a3db537b96644a92d329c7cb88e3aac54ad7c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

@@ -1,6 +1,11 @@
 import Foundation
 import SVFoundation
 
+protocol HTTPTransactionURLSessionDelegate: URLSessionDelegate {
+    /// An opportunity to modify a request before it is fired.
+    func session<T>(_ session: URLSession, willCreateTaskForRequest: T) throws -> URLRequest where T: DataHTTPRequest
+}
+
 extension URLSession {
     
     /**
@@ -35,7 +40,9 @@ extension URLSession {
      */
     public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<Result<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) -> URLSessionDataTask {
         do {
-            return dataTask(withHTTPURLRequest: try request.urlRequest(), asyncReturn: { result in
+            let request = try (try (delegate as? HTTPTransactionURLSessionDelegate)?.session(self, willCreateTaskForRequest: request))
+                ?? (try request.urlRequest())
+            return dataTask(withHTTPURLRequest: request, asyncReturn: { result in
                 asyncReturn(self.process(result: result, of: T.self))
             })
         } catch {

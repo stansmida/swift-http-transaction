@@ -1,7 +1,7 @@
 import Foundation
 import SVFoundation
 
-protocol HTTPTransactionURLSessionDelegate: URLSessionDelegate {
+public protocol HTTPTransactionURLSessionDelegate: URLSessionDelegate {
     /// An opportunity to modify a request before it is fired.
     func session<T>(_ session: URLSession, willCreateTaskForRequest: T) throws -> URLRequest where T: DataHTTPRequest
 }

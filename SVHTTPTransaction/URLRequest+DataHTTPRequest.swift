@@ -3,7 +3,13 @@ import SVFoundation
 
 public protocol HTTPTransactionURLSessionDelegate: URLSessionDelegate {
     /// An opportunity to modify a request before it is fired.
-    func session<T>(_ session: URLSession, willCreateTaskForRequest: T) throws -> URLRequest where T: DataHTTPRequest
+    func urlSession<T>(_ session: URLSession, willCreateTaskForRequest request: T) throws -> URLRequest where T: DataHTTPRequest
+}
+
+public extension HTTPTransactionURLSessionDelegate {
+    func urlSession<T>(_ session: URLSession, willCreateTaskForRequest request: T) throws -> URLRequest where T: DataHTTPRequest {
+        try request.urlRequest()
+    }
 }
 
 extension URLSession {
@@ -40,7 +46,7 @@ extension URLSession {
      */
     public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<Result<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) -> URLSessionDataTask {
         do {
-            let request = try (try (delegate as? HTTPTransactionURLSessionDelegate)?.session(self, willCreateTaskForRequest: request))
+            let request = try (try (delegate as? HTTPTransactionURLSessionDelegate)?.urlSession(self, willCreateTaskForRequest: request))
                 ?? (try request.urlRequest())
             return dataTask(withHTTPURLRequest: request, asyncReturn: { result in
                 asyncReturn(self.process(result: result, of: T.self))

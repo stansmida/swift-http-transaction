@@ -1,2 +1,3 @@
-# svhttptransaction
-A strong type HTTP request - response transaction
+# swift-stronger-url-session
+
+Typed HTTP request - response over `Foundation.URLSession`.

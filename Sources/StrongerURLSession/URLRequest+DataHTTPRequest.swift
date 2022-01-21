@@ -1,5 +1,4 @@
 import Foundation
-import SVFoundation
 
 public protocol HTTPTransactionURLSessionDelegate: URLSessionDelegate {
     /// An opportunity to modify a request before it is fired.
@@ -44,7 +43,7 @@ extension URLSession {
        - asyncReturn: A processed response to resolve.
      - Returns: The new session data task.
      */
-    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping AsyncReturn<Result<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>>) -> URLSessionDataTask {
+    public func dataTask<T: DataHTTPRequest>(with request: T, asyncReturn: @escaping (Result<T.ResponseBody, HTTPTransactionError<T.ProblemDetail>>) -> Void) -> URLSessionDataTask {
         do {
             let request = try (try (delegate as? HTTPTransactionURLSessionDelegate)?.urlSession(self, willCreateTaskForRequest: request))
                 ?? (try request.urlRequest())

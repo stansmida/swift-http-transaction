@@ -1,5 +1,4 @@
 import Foundation
-import SVFoundation
 
 public extension URLSession {
     
@@ -10,7 +9,7 @@ public extension URLSession {
      - Postcondition: `HTTPURLResponse.body` in `asyncReturn` is guaranteed
      to be not nil.
      */
-    func dataTask(withHTTPURLRequest request: URLRequest, asyncReturn: @escaping AsyncReturn<Result<HTTPURLResponse, Error>>) -> URLSessionDataTask {
+    func dataTask(withHTTPURLRequest request: URLRequest, asyncReturn: @escaping (Result<HTTPURLResponse, Error>) -> Void) -> URLSessionDataTask {
         precondition(["http", "https"].contains(request.url?.scheme), "Only HTTP protocol is allowed here.")
         return dataTask(with: request, completionHandler: { data, urlResponse, error in
             do {
@@ -28,8 +27,8 @@ public extension URLSession {
                  either data (may be empty but not nil) and HTTPURLResponse in
                  case of success or error in case of failure.*/
                 guard data != nil, let httpURLResponse = urlResponse as? HTTPURLResponse else {
-                    assertionFailure()
-                    throw UnexpectedError(errorDescription: "Unexpected arguments. Request: \(request). Data: \(String(describing: data)); Response: \(String(describing: urlResponse)); Error: \(String(describing: error))")
+                    assertionFailure("Unexpected arguments. Request: \(request). Data: \(String(describing: data)); Response: \(String(describing: urlResponse)); Error: \(String(describing: error))")
+                    throw InternalError()
                 }
                 httpURLResponse.body = data
                 asyncReturn(.success(httpURLResponse))

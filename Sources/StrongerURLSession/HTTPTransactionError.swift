@@ -19,3 +19,5 @@ public enum HTTPTransactionError<ProblemDetail>: Error {
     case unsuccessfulRequest(HTTPURLResponse, ProblemDetail?)
     case decodingFailure(Error)
 }
+
+public struct InternalError: Error {}

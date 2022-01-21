@@ -1,3 +1,3 @@
 # swift-stronger-url-session
 
-Typed HTTP request - response over `Foundation.URLSession`.
+A description of this package.

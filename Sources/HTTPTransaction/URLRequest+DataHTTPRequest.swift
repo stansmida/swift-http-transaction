@@ -62,7 +62,7 @@ extension URLSession {
             let httpURLResponse = try result.get()
             let data = httpURLResponse.body!
             guard (200..<300).contains(httpURLResponse.statusCode) else {
-                return .failure(.unsuccessfulRequest(httpURLResponse, try? T.ProblemDetail(data: data)))
+                return .failure(.unsuccessfulRequest(httpURLResponse, T.ProblemDetail.self == Never.self ? nil : try? T.ProblemDetail(data: data)))
             }
             do {
                 return .success(try T.ResponseBody(data: data))

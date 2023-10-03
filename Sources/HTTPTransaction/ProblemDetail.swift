@@ -21,3 +21,12 @@ import Foundation
  `DataHTTPRequest`.
  */
 public typealias ProblemDetailProtocol = DataConvertible
+
+extension Never: ProblemDetailProtocol {
+    public init(data: Data) throws {
+        fatalError()
+    }
+    public func data() throws -> Data {
+        fatalError()
+    }
+}

@@ -1,11 +1,10 @@
 import XCTest
-@testable import StrongerURLSession
+@testable import HTTPTransaction
 
-final class swift_stronger_url_sessionTests: XCTestCase {
+final class HTTPTransactionTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-//        XCTAssertEqual(swift_stronger_url_session().text, "Hello, World!")
     }
 }

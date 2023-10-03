@@ -1,3 +1,3 @@
-# swift-stronger-url-session
+# swift-http-transaction
 
-A description of this package.
+Strong type layer over URLSession.
